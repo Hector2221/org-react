@@ -1,5 +1,6 @@
 import "./Formulario.css";
 import { CampoTexto } from "../CampoTexto";
+import { ListaOpciones } from "../ListaOpciones";
 
 export const Formulario = () => {
   return (
@@ -9,6 +10,7 @@ export const Formulario = () => {
         <CampoTexto titulo="Nombre" placeholder="Ingresar nombre" />
         <CampoTexto titulo="Puesto" placeholder="Ingresar puesto" />
         <CampoTexto titulo="Foto" placeholder="Ingresar enlace de foto" />
+        <ListaOpciones />
       </form>
     </section>
   );

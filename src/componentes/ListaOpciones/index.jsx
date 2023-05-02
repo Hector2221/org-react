@@ -1,15 +1,24 @@
+import "./ListaOpciones.css";
+
 export const ListaOpciones = () => {
+  const equipo = [
+    "Programación",
+    "Front End",
+    "Data Science",
+    "Devops",
+    "UX y Diseño",
+    "Móvil",
+    "Innovación y Gestión",
+  ];
   return (
     <div className="ListaOpciones">
       <label>Equipos</label>
       <select>
-        <option value="">Programación</option>
-        <option value="">Front End</option>
-        <option value="">Data Science</option>
-        <option value="">Devops</option>
-        <option value="">UX y Diseño</option>
-        <option value="">Móvil</option>
-        <option value="">Innovación y Gestión</option>
+        {equipo.map((equipo, index) => (
+          <option key={index} value={equipo}>
+            {equipo}
+          </option>
+        ))}
       </select>
     </div>
   );
