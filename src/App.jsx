@@ -27,7 +27,11 @@ function App() {
   return (
     <>
       <Header />
-      {formulario == true ? <Formulario /> : <></>}
+      {formulario == true ? (
+        <Formulario equipo={equipo.map((equipo) => equipo.titulo)} />
+      ) : (
+        <></>
+      )}
       <MiOrg cambiarMostrar={cambiarMostrar} />
       {equipo.map((equipo) => (
         <Equipo equipo={equipo} key={equipo.titulo} />

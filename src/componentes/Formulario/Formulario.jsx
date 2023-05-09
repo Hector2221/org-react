@@ -4,7 +4,7 @@ import { CampoTexto } from "../CampoTexto";
 import { ListaOpciones } from "../ListaOpciones";
 import { Boton } from "../Boton";
 
-export const Formulario = () => {
+export const Formulario = (props) => {
   const [nombre, setNombre] = useState("");
   const [puesto, setpuesto] = useState("");
   const [foto, setfoto] = useState("");
@@ -47,7 +47,11 @@ export const Formulario = () => {
           valor={foto}
           setValor={setfoto}
         />
-        <ListaOpciones valor={equipo} setValor={setEquipo} />
+        <ListaOpciones
+          valor={equipo}
+          setValor={setEquipo}
+          equipo={props.equipo}
+        />
         <Boton>Crear</Boton>
       </form>
     </section>
