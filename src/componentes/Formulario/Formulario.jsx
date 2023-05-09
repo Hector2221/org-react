@@ -10,16 +10,20 @@ export const Formulario = (props) => {
   const [foto, setfoto] = useState("");
   const [equipo, setEquipo] = useState("");
 
+  //destrocturar
+  const { registrar } = props;
+
   const manejarEnvio = (e) => {
     e.preventDefault();
     console.log("majear envio");
+
     let datosEnviar = {
       nombre,
       puesto,
       foto,
       equipo,
     };
-    console.log(datosEnviar);
+    registrar(datosEnviar);
   };
 
   return (

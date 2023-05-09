@@ -15,3 +15,10 @@
     border-bottom: 4px solid #57C278;
     padding-bottom: 8px;
 }
+
+.colaboradores {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+}

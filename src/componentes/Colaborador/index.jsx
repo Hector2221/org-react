@@ -1,9 +1,16 @@
-import "./colaborador.css";
+import "./Colaborador.css";
 
-export const colaborador = () => {
+export const Colaborador = (props) => {
+  const { nombre, puesto, foto, equipo } = props.datos;
   return (
-    <div className="card">
-      <h3>hola</h3>
+    <div className="colaborador">
+      <div className="encabezado">
+        <img src="https://github.com/Hector2221.png" alt="" />
+      </div>
+      <div className="info">
+        <h4>{nombre}</h4>
+        <h5>{puesto}</h5>
+      </div>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import { Equipo } from "./componentes/Equipo";
 
 function App() {
   const [formulario, estadoFormulario] = useState(false);
+  const [colaboradores, setcolaboradores] = useState([]);
   //Ternario --> condicion ? seMuestra : NoSeMuestra
 
   const cambiarMostrar = () => {
@@ -24,17 +25,32 @@ function App() {
     { titulo: "Innovación y Gestión", colorP: "#FF8A29 ", colorS: "#FFEEDF" },
   ];
 
+  //Registrar colaborador
+  const registrar = (colaborador) => {
+    console.log("Nuevo colaborador", colaborador);
+
+    //Spread operator  copea el arreglo antiguo y agrega el nuevo valor
+    setcolaboradores([...colaboradores, colaborador]);
+  };
+
   return (
     <>
       <Header />
       {formulario == true ? (
-        <Formulario equipo={equipo.map((equipo) => equipo.titulo)} />
+        <Formulario
+          equipo={equipo.map((equipo) => equipo.titulo)}
+          registrar={registrar}
+        />
       ) : (
         <></>
       )}
       <MiOrg cambiarMostrar={cambiarMostrar} />
       {equipo.map((equipo) => (
-        <Equipo equipo={equipo} key={equipo.titulo} />
+        <Equipo
+          equipo={equipo}
+          key={equipo.titulo}
+          colaboradores={colaboradores}
+        />
       ))}
     </>
   );
