@@ -3,8 +3,8 @@ import { Colaborador } from "../Colaborador";
 export const Equipo = (props) => {
   //Destructuracion
   const { colorS, colorP, titulo } = props.equipo;
-  const { colaboradores } = props;
-  console.log(colaboradores.length > 0);
+  const { colaboradores, deleteuser } = props;
+
   return (
     <>
       {colaboradores.length > 0 && (
@@ -12,7 +12,12 @@ export const Equipo = (props) => {
           <h3 style={{ borderColor: colorP }}>{titulo}</h3>
           <div className="colaboradores">
             {colaboradores.map((colaborador, index) => (
-              <Colaborador datos={colaborador} key={index} colorP={colorP} />
+              <Colaborador
+                datos={colaborador}
+                key={index}
+                colorP={colorP}
+                deleteuser={deleteuser}
+              />
             ))}
           </div>
         </section>

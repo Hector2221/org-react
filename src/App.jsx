@@ -34,9 +34,15 @@ function App() {
     setcolaboradores([...colaboradores, colaborador]);
   };
 
+  //Eliminar colaborador
+  const eliminarColaborador = () => {
+    console.log("eliminar colaborador");
+  };
+
   return (
     <>
       <Header />
+
       {formulario == true ? (
         <Formulario
           equipo={equipo.map((equipo) => equipo.titulo)}
@@ -45,7 +51,9 @@ function App() {
       ) : (
         <></>
       )}
+
       <MiOrg cambiarMostrar={cambiarMostrar} />
+
       {equipo.map((equipo) => (
         <Equipo
           equipo={equipo}
@@ -53,8 +61,10 @@ function App() {
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.equipo === equipo.titulo
           )}
+          deleteuser={eliminarColaborador}
         />
       ))}
+
       <Footer />
     </>
   );
