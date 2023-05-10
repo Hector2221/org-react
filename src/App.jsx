@@ -4,6 +4,7 @@ import { Header } from "./componentes/Header/Header.jsx";
 import { Formulario } from "./componentes/Formulario/Formulario.jsx";
 import { MiOrg } from "./componentes/MiOrg";
 import { Equipo } from "./componentes/Equipo";
+import { Footer } from "./componentes/Footer";
 
 function App() {
   const [formulario, estadoFormulario] = useState(false);
@@ -54,6 +55,7 @@ function App() {
           )}
         />
       ))}
+      <Footer />
     </>
   );
 }
