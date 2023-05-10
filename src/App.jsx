@@ -49,7 +49,9 @@ function App() {
         <Equipo
           equipo={equipo}
           key={equipo.titulo}
-          colaboradores={colaboradores}
+          colaboradores={colaboradores.filter(
+            (colaborador) => colaborador.equipo === equipo.titulo
+          )}
         />
       ))}
     </>
