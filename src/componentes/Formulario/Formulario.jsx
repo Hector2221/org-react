@@ -1,4 +1,5 @@
 import "./Formulario.css";
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { CampoTexto } from "../CampoTexto";
 import { ListaOpciones } from "../ListaOpciones";
@@ -18,6 +19,7 @@ export const Formulario = (props) => {
     console.log("majear envio");
 
     let datosEnviar = {
+      id: uuidv4(),
       nombre,
       puesto,
       foto,

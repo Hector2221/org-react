@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { v4 as uuid } from "uuid";
 import "./App.css";
 import { Header } from "./componentes/Header/Header.jsx";
 import { Formulario } from "./componentes/Formulario/Formulario.jsx";
@@ -10,13 +11,48 @@ function App() {
   const [formulario, estadoFormulario] = useState(false);
   const [colaboradores, setcolaboradores] = useState([]);
   const [equipo, setequipos] = useState([
-    { titulo: "Programación", colorP: "#57C278 ", colorS: "#D9F7E9" },
-    { titulo: "Front End", colorP: "#82CFFA ", colorS: "#E8F8FF" },
-    { titulo: "Data Science", colorP: "#A6D157 ", colorS: "#F0F8E2" },
-    { titulo: "Devops", colorP: "#E06B69 ", colorS: "#FDE7E8" },
-    { titulo: "UX y Diseño", colorP: "#DB6EBF ", colorS: "#FAE9F5" },
-    { titulo: "Móvil", colorP: "#FFBA05 ", colorS: "#FFF5D9" },
-    { titulo: "Innovación y Gestión", colorP: "#FF8A29 ", colorS: "#FFEEDF" },
+    {
+      id: uuid(),
+      titulo: "Programación",
+      colorP: "#57C278 ",
+      colorS: "#D9F7E9",
+    },
+    {
+      id: uuid(),
+      titulo: "Front End",
+      colorP: "#82CFFA ",
+      colorS: "#E8F8FF",
+    },
+    {
+      id: uuid(),
+      titulo: "Data Science",
+      colorP: "#A6D157 ",
+      colorS: "#F0F8E2",
+    },
+    {
+      id: uuid(),
+      titulo: "Devops",
+      colorP: "#E06B69 ",
+      colorS: "#FDE7E8",
+    },
+    {
+      id: uuid(),
+      titulo: "UX y Diseño",
+      colorP: "#DB6EBF ",
+      colorS: "#FAE9F5",
+    },
+    {
+      id: uuid(),
+      titulo: "Móvil",
+      colorP: "#FFBA05 ",
+      colorS: "#FFF5D9",
+    },
+    {
+      id: uuid(),
+      titulo: "Innovación y Gestión",
+      colorP: "#FF8A29 ",
+      colorS: "#FFEEDF",
+    },
   ]);
   //Ternario --> condicion ? seMuestra : NoSeMuestra
 
@@ -25,9 +61,10 @@ function App() {
   };
 
   //Actualiza color de equipo
-  const colorUpdate = (color, titulo) => {
+  const colorUpdate = (color, id) => {
+    console.log(color, id);
     const equipos = equipo.map((equipo) => {
-      if (equipo.titulo === titulo) {
+      if (equipo.id === id) {
         equipo.colorP = color;
       }
       return equipo;
@@ -44,8 +81,13 @@ function App() {
   };
 
   //Eliminar colaborador
-  const eliminarColaborador = () => {
-    console.log("eliminar colaborador");
+  const eliminarColaborador = (id) => {
+    console.log("eliminar colaborador", id);
+    const newColaboradores = colaboradores.filter((colaborador) => {
+      return colaborador.id !== id;
+    });
+    console.log(newColaboradores);
+    setcolaboradores(newColaboradores);
   };
 
   return (
