@@ -9,14 +9,7 @@ import { Footer } from "./componentes/Footer";
 function App() {
   const [formulario, estadoFormulario] = useState(false);
   const [colaboradores, setcolaboradores] = useState([]);
-  //Ternario --> condicion ? seMuestra : NoSeMuestra
-
-  const cambiarMostrar = () => {
-    estadoFormulario(!formulario);
-  };
-
-  // lista de equipo
-  const equipo = [
+  const [equipo, setequipos] = useState([
     { titulo: "Programación", colorP: "#57C278 ", colorS: "#D9F7E9" },
     { titulo: "Front End", colorP: "#82CFFA ", colorS: "#E8F8FF" },
     { titulo: "Data Science", colorP: "#A6D157 ", colorS: "#F0F8E2" },
@@ -24,7 +17,23 @@ function App() {
     { titulo: "UX y Diseño", colorP: "#DB6EBF ", colorS: "#FAE9F5" },
     { titulo: "Móvil", colorP: "#FFBA05 ", colorS: "#FFF5D9" },
     { titulo: "Innovación y Gestión", colorP: "#FF8A29 ", colorS: "#FFEEDF" },
-  ];
+  ]);
+  //Ternario --> condicion ? seMuestra : NoSeMuestra
+
+  const cambiarMostrar = () => {
+    estadoFormulario(!formulario);
+  };
+
+  //Actualiza color de equipo
+  const colorUpdate = (color, titulo) => {
+    const equipos = equipo.map((equipo) => {
+      if (equipo.titulo === titulo) {
+        equipo.colorP = color;
+      }
+      return equipo;
+    });
+    setequipos(equipos);
+  };
 
   //Registrar colaborador
   const registrar = (colaborador) => {
@@ -58,6 +67,7 @@ function App() {
         <Equipo
           equipo={equipo}
           key={equipo.titulo}
+          colorUpdate={colorUpdate}
           colaboradores={colaboradores.filter(
             (colaborador) => colaborador.equipo === equipo.titulo
           )}

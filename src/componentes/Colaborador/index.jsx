@@ -1,11 +1,11 @@
 import "./Colaborador.css";
-
+import { RiDeleteBackLine } from "react-icons/ri";
 export const Colaborador = (props) => {
   const { nombre, puesto, foto, equipo } = props.datos;
   const { colorP, deleteuser } = props;
   return (
     <div className="colaborador">
-      <span onClick={deleteuser}>D</span>
+      <RiDeleteBackLine className="eliminar" onClick={deleteuser} />
       <div className="encabezado" style={{ backgroundColor: colorP }}>
         <img src="https://github.com/Hector2221.png" alt="" />
       </div>
