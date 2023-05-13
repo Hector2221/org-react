@@ -24,6 +24,7 @@ export const Formulario = (props) => {
       puesto,
       foto,
       equipo,
+      fav: false,
     };
     registrar(datosEnviar);
   };

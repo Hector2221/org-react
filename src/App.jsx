@@ -90,6 +90,17 @@ function App() {
     setcolaboradores(newColaboradores);
   };
 
+  //like
+  const like = (id) => {
+    const likecolaborador = colaboradores.map((colaborador) => {
+      if (colaborador.id === id) {
+        colaborador.fav = !colaborador.fav;
+      }
+      return colaborador;
+    });
+    setcolaboradores(likecolaborador);
+  };
+
   return (
     <>
       <Header />
@@ -114,6 +125,7 @@ function App() {
             (colaborador) => colaborador.equipo === equipo.titulo
           )}
           deleteuser={eliminarColaborador}
+          like={like}
         />
       ))}
 

@@ -4,7 +4,7 @@ import { Colaborador } from "../Colaborador";
 export const Equipo = (props) => {
   //Destructuracion
   const { colorS, colorP, titulo, id } = props.equipo;
-  const { colaboradores, deleteuser, colorUpdate } = props;
+  const { colaboradores, deleteuser, colorUpdate, like } = props;
 
   const obj = {
     backgroundColor: hexToRgba(colorP, "0.6"),
@@ -30,6 +30,7 @@ export const Equipo = (props) => {
                 key={index}
                 colorP={colorP}
                 deleteuser={deleteuser}
+                like={like}
               />
             ))}
           </div>
